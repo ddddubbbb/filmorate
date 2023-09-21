@@ -23,7 +23,7 @@ class FilmControllerTest {
     public void start() {
         InMemoryUserStorage userStorage = new InMemoryUserStorage();
         InMemoryFilmStorage filmStorage = new InMemoryFilmStorage();
-        FilmService filmService = new FilmService(filmStorage,userStorage);
+        FilmService filmService = new FilmService(filmStorage, userStorage);
         UserService userService = new UserService(userStorage);
         filmController = new FilmController(filmService);
         userController = new UserController(userService);
@@ -77,7 +77,7 @@ class FilmControllerTest {
         filmController.create(film);
         User user1 = new User(1, "freeeze1@ya.ru", "Денис", "", LocalDate.now().minusYears(35));
         userController.create(user1);
-        filmController.addLike(1,1);
+        filmController.addLike(1, 1);
 
         assertEquals(1, film.getLikes().size());
     }

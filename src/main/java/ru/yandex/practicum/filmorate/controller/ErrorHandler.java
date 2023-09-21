@@ -27,7 +27,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorResponse handleRunTimeException(final RuntimeException e){
+    public ErrorResponse handleRunTimeException(final RuntimeException e) {
         log.error(HttpStatus.INTERNAL_SERVER_ERROR.toString(), e);
         return new ErrorResponse(e.getMessage());
     }
