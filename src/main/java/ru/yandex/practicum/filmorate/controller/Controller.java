@@ -46,7 +46,7 @@ public abstract class Controller<T extends Model> {
     }
 
     @GetMapping("/{id}")
-    public T getById (@PathVariable Integer id) {
+    public T getById(@PathVariable Integer id) {
         return service.getById(id);
     }
 }
