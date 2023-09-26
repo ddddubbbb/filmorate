@@ -32,7 +32,7 @@ public class ErrorHandler {
         return new ErrorResponse(e.getMessage());
     }
 
-    private static class ErrorResponse {
+    public class ErrorResponse {
         private final String error;
 
         public ErrorResponse(String error) {
