@@ -146,7 +146,7 @@
 - Триллер.
 - Документальный.
 - Боевик.
--
+
 2. Ещё одно свойство — рейтинг Ассоциации кинокомпаний (англ. Motion Picture Association, сокращённо МРА). Эта оценка определяет возрастное ограничение для фильма. Значения могут быть следующими:
 - G — у фильма нет возрастных ограничений,
 - PG — детям рекомендуется смотреть фильм с родителями,
@@ -181,23 +181,22 @@
 
 ![ER-diagram](er_diagram.png)
 
+В таблицах FRIENDS, LIKES, FILM_GENRES первичные ключи
+составные.
+
 Примеры запросов:
+
 1. Получение количества лайков у фильма с ID = 1:  
-   SELECT l.film_id,  
-   COUNT(l.user_id) AS likes  
-   FROM like AS l  
-   WHERE l.film_id = 1  
+   SELECT film_id,  
+   COUNT(user_id) AS all_likes  
+   FROM likes  
+   WHERE film_id = 1  
    GROUP BY film_id;
 
 
-2. Получение наименования, описания и лайков у фильма с ID = 1:  
-   SELECT f.name AS film_name,  
-   f.description AS film_description,  
-   likes  
-   FROM film as f  
-   JOIN (SELECT COUNT(l.user_id) AS likes  
-   FROM like AS l  
-   GROUP BY film_id;)  
-   ON f.film_id = l.film_id  
-   WHERE f.film_id = 1;
+2. Получение наименования и описания фильма с ID = 1:  
+   SELECT name AS film_name,  
+   description AS film_description  
+   FROM films  
+   WHERE film_id = 1;
 </details> 
