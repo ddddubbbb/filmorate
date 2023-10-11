@@ -31,14 +31,14 @@ class FilmoRateApplicationTests {
 
     @Test
     void getAllFilms_shouldConfirmThatTwoFilmsWasAddedAtList() {
-        Film film1 = Film.builder().id(1).name("1984").
-                description("жизненно").
-                releaseDate(LocalDate.now().minusYears(40)).
-                duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
-        Film film2 = Film.builder().id(1).name("Мы").
-                description("про нас").
-                releaseDate(LocalDate.now().minusYears(40)).
-                duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(1)).build();
+        Film film1 = Film.builder().id(1).name("1984")
+                .description("жизненно").
+                releaseDate(LocalDate.now().minusYears(40))
+                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+        Film film2 = Film.builder().id(1).name("Мы")
+                .description("про нас").
+                releaseDate(LocalDate.now().minusYears(40))
+                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(1)).build();
         filmDbStorage.create(film1);
         filmDbStorage.create(film2);
         Collection<Film> films = filmDbStorage.getAll();
@@ -48,10 +48,10 @@ class FilmoRateApplicationTests {
 
     @Test
     void createFilm_shouldConfirmThatFilmIdExists() {
-        Film film = Film.builder().id(1).name("1984").
-                description("жизненно").
-                releaseDate(LocalDate.now().minusYears(40)).
-                duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+        Film film = Film.builder().id(1).name("1984")
+                .description("жизненно").
+                releaseDate(LocalDate.now().minusYears(40))
+                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
         filmDbStorage.create(film);
         Film filmOptional = filmDbStorage.getById(1);
 
@@ -60,10 +60,10 @@ class FilmoRateApplicationTests {
 
     @Test
     void getFilmById_shouldConfirmThatFilmIdExists() {
-        Film film = Film.builder().id(1).name("1984").
-                description("жизненно").
-                releaseDate(LocalDate.now().minusYears(39)).
-                duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+        Film film = Film.builder().id(1).name("1984")
+                .description("жизненно")
+                .releaseDate(LocalDate.now().minusYears(39))
+                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
         filmDbStorage.create(film);
 
         assertEquals(filmDbStorage.getById(1).getId(), film.getId());
