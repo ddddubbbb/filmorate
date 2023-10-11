@@ -39,7 +39,7 @@ public class Film {
     private Rating rating;
 
     @JsonIgnore
-    final private Set<Integer> likes = new HashSet<>();
+    private final Set<Integer> likes = new HashSet<>();
 
     public void addLike(Integer id) {
         likes.add(id);
