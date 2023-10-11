@@ -34,8 +34,8 @@ class FilmTest {
     @Test
     void createFilmWithTooLongDescription_shouldShowErrorMessage() {
         String description = "блаблалал".repeat(200);
-        Film film = Film.builder().name("Кино").description(description)
-                .releaseDate(LocalDate.now().minusYears(13)).duration(280).build();
+        Film film = Film.builder().name("Кино").description(description).
+                releaseDate(LocalDate.now().minusYears(13)).duration(280).build();
         ResponseEntity<Film> response = restTemplate.postForEntity("/films", film, Film.class);
 
         assertEquals("400 BAD_REQUEST", response.getStatusCode().toString());
