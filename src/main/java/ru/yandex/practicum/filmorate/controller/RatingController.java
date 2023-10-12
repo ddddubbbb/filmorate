@@ -12,7 +12,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/rating")
+@RequestMapping("/mpa")
 public class RatingController {
     private final RatingService ratingService;
 
