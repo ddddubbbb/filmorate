@@ -22,13 +22,13 @@ public class RatingController {
 
     @GetMapping
     public List<Rating> getRatings() {
-        log.info("Запрос на список Rating");
+        log.info("Запрос на список рейтинга фильмов");
         return ratingService.getRatings();
     }
 
     @GetMapping("/{id}")
     public Rating getRatingById(@PathVariable Integer id) {
-        log.info("Запрос на список Rating c id {}", id);
+        log.info("Запрос на рейтинг c id {}", id);
         return ratingService.getRatingById(id);
     }
 }

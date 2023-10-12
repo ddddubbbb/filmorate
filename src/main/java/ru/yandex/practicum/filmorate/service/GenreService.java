@@ -18,7 +18,7 @@ public class GenreService {
     public Genre getGenreById(int id) {
         Genre genre = genreDbStorage.getGenreById(id);
         if (genre == null) {
-            throw new NotFoundException("Genre not found");
+            throw new NotFoundException("Жанр не найден");
         }
         return genre;
     }

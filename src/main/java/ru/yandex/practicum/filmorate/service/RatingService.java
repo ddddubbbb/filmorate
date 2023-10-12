@@ -18,7 +18,7 @@ public class RatingService {
     public Rating getRatingById(int id) {
         Rating rating = ratingDbStorage.getRatingById(id);
         if (rating == null) {
-            throw new NotFoundException("Rating not found");
+            throw new NotFoundException("Рейтинг не найден");
         }
         return rating;
     }

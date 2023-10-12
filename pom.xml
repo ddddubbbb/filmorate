@@ -12,7 +12,7 @@
     <artifactId>filmorate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>filmorate</name>
-    <description>Spring Boot</description>
+    <description>Spring Boot приложение Filmorate (от англ. film — «фильм» и rate — «оценивать»).</description>
     <properties>
         <java.version>11</java.version>
     </properties>

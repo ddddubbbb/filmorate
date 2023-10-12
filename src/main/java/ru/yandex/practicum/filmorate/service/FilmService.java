@@ -30,34 +30,34 @@ public class FilmService {
     }
 
     public Collection<Film> getAll() {
-        log.info("List of all movies: " + filmStorage.getAll().size());
+        log.info("Список всех фильмов: " + filmStorage.getAll().size());
         return filmStorage.getAll();
     }
 
     public Film create(Film film) {
-        validate(film, "Movie form is filled in incorrectly");
+        validate(film, "Форма 'фильм' заполнена неверно");
         Film result = filmStorage.create(film);
-        log.info("Movie successfully added: " + film);
+        log.info("Фильм добавлен: " + film);
         return result;
     }
 
     public Film update(Film film) {
-        validate(film, "Movie update form is filled in incorrectly");
+        validate(film, "Форма 'обновление фильма' заполнена неверно");
         Film result = filmStorage.update(film);
-        log.info("Movie successfully updated: " + film);
+        log.info("Фильм обновлен: " + film);
         return result;
     }
 
     public void delete(int filmId) {
         if (getById(filmId) == null) {
-            throw new NotFoundException("Movie with ID = " + filmId + " not found");
+            throw new NotFoundException("Фильм с ID = " + filmId + " не найден");
         }
-        log.info("Deleted film with id: {}", filmId);
+        log.info("Удаление фильма с id: {}", filmId);
         filmStorage.delete(filmId);
     }
 
     public Film getById(Integer id) {
-        log.info("Requested user with ID = " + id);
+        log.info("Запрос пользователя с ID = " + id);
         return filmStorage.getById(id);
     }
 
@@ -66,12 +66,12 @@ public class FilmService {
         if (film != null) {
             if (userStorage.getById(userId) != null) {
                 filmStorage.addLike(filmId, userId);
-                log.info("Like successfully added");
+                log.info("Like добавлен");
             } else {
-                throw new NotFoundException("User with ID = " + userId + " not found");
+                throw new NotFoundException("Пользователь с ID = " + userId + " не найден");
             }
         } else {
-            throw new NotFoundException("Movie with ID = " + filmId + " not found");
+            throw new NotFoundException("Фильм с ID = " + filmId + " не найден");
         }
     }
 
@@ -80,18 +80,18 @@ public class FilmService {
         if (film != null) {
             if (userStorage.getById(userId) != null) {
                 filmStorage.removeLike(filmId, userId);
-                log.info("Like successfully removed");
+                log.info("Like удален");
             } else {
-                throw new NotFoundException("User with ID = " + userId + " not found");
+                throw new NotFoundException("Пользователь с ID = " + userId + " не найден");
             }
         } else {
-            throw new NotFoundException("Movie with ID = " + filmId + " not found");
+            throw new NotFoundException("Фильм с ID = " + filmId + " не найден");
         }
     }
 
     public List<Film> getPopular(Integer count) {
         List<Film> result = new ArrayList<>(filmStorage.getPopular(count));
-        log.info("Requested a list of popular movies");
+        log.info("Запрошен лист популярных фильмов");
         return result;
     }
 
