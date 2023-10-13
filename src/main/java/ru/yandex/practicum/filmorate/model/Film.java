@@ -36,7 +36,7 @@ public class Film {
 
     private Set<Genre> genres = new HashSet<>();
 
-    private Rating rating;
+    private Rating mpa;
 
     @JsonIgnore
     private final Set<Integer> likes = new HashSet<>();

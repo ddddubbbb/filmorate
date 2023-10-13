@@ -16,11 +16,11 @@ public class RatingService {
     }
 
     public Rating getRatingById(int id) {
-        Rating rating = ratingDbStorage.getRatingById(id);
-        if (rating == null) {
+        Rating mpa = ratingDbStorage.getRatingById(id);
+        if (mpa == null) {
             throw new NotFoundException("Рейтинг не найден");
         }
-        return rating;
+        return mpa;
     }
 
     public List<Rating> getRatings() {

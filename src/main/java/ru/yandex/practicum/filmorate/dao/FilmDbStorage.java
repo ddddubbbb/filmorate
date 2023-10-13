@@ -57,7 +57,7 @@ public class FilmDbStorage implements FilmStorage {
                         "description", film.getDescription(),
                         "duration", film.getDuration(),
                         "release_date", java.sql.Date.valueOf(film.getReleaseDate()),
-                        "rating_id", film.getRating().getId()))
+                        "rating_id", film.getMpa().getId()))
                 .getKeys();
         film.setId((Integer) keys.get("film_id"));
         addGenre((Integer) keys.get("film_id"), film.getGenres());
@@ -75,7 +75,7 @@ public class FilmDbStorage implements FilmStorage {
                 + "rating_id = ? "
                 + "WHERE film_id = ?";
         jdbcTemplate.update(sqlQuery, film.getName(), film.getDescription(), film.getDuration(),
-                film.getReleaseDate(), film.getRating().getId(), film.getId());
+                film.getReleaseDate(), film.getMpa().getId(), film.getId());
         addGenre(film.getId(), film.getGenres());
         int filmId = film.getId();
         film.setGenres(getGenres(filmId));
@@ -188,7 +188,7 @@ public class FilmDbStorage implements FilmStorage {
         LocalDate releaseDate = rs.getTimestamp("release_date").toLocalDateTime().toLocalDate();
         int ratingId = rs.getInt("rating_id");
         String ratingName = rs.getString("rating_name");
-        Rating rating = new Rating(ratingId, ratingName);
+        Rating mpa = new Rating(ratingId, ratingName);
         Set<Genre> genres = new HashSet<>();
         return Film.builder()
                 .id(filmId)
@@ -196,7 +196,7 @@ public class FilmDbStorage implements FilmStorage {
                 .description(description)
                 .duration(duration)
                 .genres(genres)
-                .rating(rating)
+                .mpa(mpa)
                 .releaseDate(releaseDate)
                 .build();
     }
@@ -210,14 +210,14 @@ public class FilmDbStorage implements FilmStorage {
                 .toLocalDateTime().toLocalDate();
         int ratingId = srs.getInt("rating_id");
         String ratingName = srs.getString("rating_name");
-        Rating rating = new Rating(ratingId, ratingName);
+        Rating mpa = new Rating(ratingId, ratingName);
         Set<Genre> genres = getGenres(id);
         return Film.builder()
                 .id(id)
                 .name(name)
                 .description(description)
                 .duration(duration)
-                .rating(rating)
+                .mpa(mpa)
                 .genres(genres)
                 .releaseDate(releaseDate)
                 .build();
