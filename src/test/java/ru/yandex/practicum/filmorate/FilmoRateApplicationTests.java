@@ -34,11 +34,11 @@ class FilmoRateApplicationTests {
         Film film1 = Film.builder().id(1).name("1984")
                 .description("жизненно")
                 .releaseDate(LocalDate.now().minusYears(40))
-                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+                .duration(180).genres(new HashSet<>()).mpa(ratingDbStorage.getRatingById(5)).build();
         Film film2 = Film.builder().id(1).name("Мы")
                 .description("про нас")
                 .releaseDate(LocalDate.now().minusYears(40))
-                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(1)).build();
+                .duration(180).genres(new HashSet<>()).mpa(ratingDbStorage.getRatingById(1)).build();
         filmDbStorage.create(film1);
         filmDbStorage.create(film2);
         Collection<Film> films = filmDbStorage.getAll();
@@ -51,7 +51,7 @@ class FilmoRateApplicationTests {
         Film film = Film.builder().id(1).name("1984")
                 .description("жизненно")
                 .releaseDate(LocalDate.now().minusYears(40))
-                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+                .duration(180).genres(new HashSet<>()).mpa(ratingDbStorage.getRatingById(5)).build();
         filmDbStorage.create(film);
         Film filmOptional = filmDbStorage.getById(1);
 
@@ -63,7 +63,7 @@ class FilmoRateApplicationTests {
         Film film = Film.builder().id(1).name("1984")
                 .description("жизненно")
                 .releaseDate(LocalDate.now().minusYears(39))
-                .duration(180).genres(new HashSet<>()).rating(ratingDbStorage.getRatingById(5)).build();
+                .duration(180).genres(new HashSet<>()).mpa(ratingDbStorage.getRatingById(5)).build();
         filmDbStorage.create(film);
 
         assertEquals(filmDbStorage.getById(1).getId(), film.getId());
