@@ -18,6 +18,30 @@ run FilmorateApplication
 
 `Стек: Java, Spring Boot, SQL, H2, JdbcTemplate, JUnit`
 
+<details> <summary> ER-DIAGRAM </summary> 
+
+![ER-diagram](er_diagram.png)
+
+В таблицах FRIENDS, LIKES, FILM_GENRES первичные ключи
+составные.
+
+Примеры запросов:
+
+1. Получение количества лайков у фильма с ID = 1:  
+   SELECT film_id,  
+   COUNT(user_id) AS all_likes  
+   FROM likes  
+   WHERE film_id = 1  
+   GROUP BY film_id;
+
+
+2. Получение наименования и описания фильма с ID = 1:  
+   SELECT name AS film_name,  
+   description AS film_description  
+   FROM films  
+   WHERE film_id = 1;
+</details> 
+
 ## Этапы проектирования:
 <details> <summary> ТЗ </summary>
 
@@ -197,27 +221,3 @@ run FilmorateApplication
    Если использовать разметку markdown, то схему будет видно непосредственно в README.md.
 3. Там же напишите небольшое пояснение к схеме: приложите примеры запросов для основных операций вашего приложения.
 </details>  
-
-<details> <summary> ER-DIAGRAM </summary> 
-
-![ER-diagram](er_diagram.png)
-
-В таблицах FRIENDS, LIKES, FILM_GENRES первичные ключи
-составные.
-
-Примеры запросов:
-
-1. Получение количества лайков у фильма с ID = 1:  
-   SELECT film_id,  
-   COUNT(user_id) AS all_likes  
-   FROM likes  
-   WHERE film_id = 1  
-   GROUP BY film_id;
-
-
-2. Получение наименования и описания фильма с ID = 1:  
-   SELECT name AS film_name,  
-   description AS film_description  
-   FROM films  
-   WHERE film_id = 1;
-</details> 
