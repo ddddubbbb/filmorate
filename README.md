@@ -1,6 +1,6 @@
-# Spring Boot приложение `Filmorate`
+# Spring Boot приложение `ФильмоРэйт`
 
-Filmorate - социальная сеть, где можно выбрать кино на основе того, какие оценки фильмам ставите вы и ваши друзья. 
+Filmorate - социальная сеть, где можно выбрать кино на основе того, какие оценки фильмам ставите вы и ваши друзья.
 
 ![img](filmorate.png)
 
@@ -15,6 +15,11 @@ Filmorate - социальная сеть, где можно выбрать ки
 
 Как использовать:
 run FilmorateApplication
+
+`Стек: Java, Spring Boot, SQL, H2, JdbcTemplate, JUnit`
+
+## Этапы проектирования:
+<details> <summary> ТЗ </summary>
 
 ## Спринт 9
 <details> <summary> ТЗ </summary>
